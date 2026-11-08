@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "prs-4" :{
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "ext-http": "*",
+    "ext-pdo": "*",
+    "ext-mbstring": "*"
+  }
+}

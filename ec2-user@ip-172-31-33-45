@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    image: electrick/weconnectu-proj:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - users-db
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: "3306"
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      AWS_REGION: eu-north-1
+      ports:
+        - "80:80"
+      restart: unless-stopped
+#    volumes:
+#      - ./src:/var/www/html
+
+  # The MySQL Database
+#  users-db:
+#    image: mysql:8.0
+#    restart: unless-stopped
+#    container_name: users-db
+#    environment:
+#      MYSQL_ROOT_PASSWORD: coffee
+#      MYSQL_DATABASE: weconnectu
+#      MYSQL_USER: njax
+#      MYSQL_PASSWORD: coffee
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - mysql_data:/var/lib/mysql
+#      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+#
+#volumes:
+#  mysql_data:
